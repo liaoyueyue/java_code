@@ -18,6 +18,6 @@ public class MaxCommonDivisor {
             a = b;
             b = c;
         }
-        System.out.println("最大公约数位："+b);
+        System.out.println("最大公约数为："+b);
     }
 }
