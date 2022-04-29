@@ -5,22 +5,28 @@ import java.util.Scanner;
  * Description:求斐波那契数列的第n项。(迭代实现)
  * User: liaoyueyue
  * Date: 2022-04-29
- * Time: 19:14
+ * Time: 20:06
  */
 public class fib_array {
-    private static int fib(int n) {
-        if (n == 1 || n == 2){
+    public static int return_fib(int n){
+        if(n == 1 || n == 2){
             return 1;
         }else{
-            return fib(n-1)+fib(n-2);
+            int a = 1;
+            int b = 1;
+            int c = 1;
+            for (int i = 0; i < n-2; i++) {
+                a=b;
+                b=c;
+                c = a + b;
+            }
+            return c;
         }
     }
 
     public static void main(String[] args) {
-        Scanner in =new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
         int n = in.nextInt();
-        System.out.println(fib(n));
+        System.out.println(return_fib(n));
     }
-
-
 }
