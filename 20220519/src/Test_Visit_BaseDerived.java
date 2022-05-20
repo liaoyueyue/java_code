@@ -6,7 +6,7 @@
  * Time: 21:54
  */
 
-class Base{
+ class Base{
     int a = 1;
     public void mothodA(){
         System.out.println("Base:othod");
