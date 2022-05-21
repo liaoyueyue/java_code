@@ -1,3 +1,5 @@
+package Demo1;
+
 /**
  * Created with IntelliJ IDEA.
  * Description:这里测试多态用法
