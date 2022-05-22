@@ -1,3 +1,5 @@
+package Demo3;
+
 /**
  * Created with IntelliJ IDEA.
  * Description:这里测试向上转型和向下转型
@@ -22,7 +24,7 @@ class Animal{
 class Dog extends Animal {
     @Override
     public void eat() {
-        System.out.println("Demo1.Dog.eat");
+        System.out.println("Demo1.Demo3.Dog.eat");
     }
     public Dog(String name, int age) {
         super(name, age);
@@ -32,7 +34,7 @@ class Dog extends Animal {
 class Cat extends Animal{
     @Override
     public void eat() {
-        System.out.println("Cat.eat");
+        System.out.println("Demo3.Cat.eat");
     }
 
     public Cat(String name, int age) {

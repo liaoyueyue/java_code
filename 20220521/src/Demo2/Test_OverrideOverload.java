@@ -1,3 +1,5 @@
+package Demo2;
+
 /**
  * Created with IntelliJ IDEA.
  * Description:这里用来测试重写和重载的区别
@@ -7,7 +9,7 @@
  */
 class Base{
     public void print(){
-        System.out.println("Base.print");
+        System.out.println("Demo2.Base.print");
     }
     public void print(String string){//这里是print重载
         System.out.println(string);
@@ -16,7 +18,7 @@ class Base{
 class Derivative extends Base{
     @Override
     public void print() {//这里重写父类的print的函数
-        System.out.println("Derivative.print");
+        System.out.println("Demo2.Derivative.print");
     }
 }
 
