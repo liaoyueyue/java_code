@@ -5,9 +5,11 @@
  * Date: 2022-05-22
  * Time: 12:14
  */
+
 class Animal{
     String name;
     int age;
+
     public Animal(String name, int age){
         this.name = name;
         this.age = age;

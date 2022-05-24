@@ -74,3 +74,6 @@ public class Test_abstract {
         System.out.println("圆面积"+circle.area);
     }
 }
+/**
+ * 抽象类本身不能被实例化, 要想使用, 只能创建该抽象类的子类. 然后让子类重写抽象类中的抽象方法.
+ */
