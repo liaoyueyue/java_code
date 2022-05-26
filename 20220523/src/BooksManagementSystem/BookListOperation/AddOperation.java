@@ -16,7 +16,11 @@ public class AddOperation implements IOperation{
 
     @Override
     public void word(BookList bookList) {
-
+        int CurrentSize = bookList.getUsedsize();//读取当前实时图书数量
+        if(CurrentSize == BookList.MaxBook){
+            System.out.println("当前图书已达上限，需要进行扩容或者进行删除");
+            return;
+        }
         System.out.println("新增图书");
         Scanner in = new Scanner(System.in);//创建键盘录入对象
         System.out.println("输入你需要添加图书的名字");
@@ -25,10 +29,11 @@ public class AddOperation implements IOperation{
         String author = in.nextLine();
         System.out.println("输入你需要添加图书的价格");
         double price = in.nextDouble();
+        String temp = in.nextLine();//这里回收一下换行符"\n"
+        temp = null;//释放该变量内存
         System.out.println("输入你需要添加图书的类型");
         String type = in.nextLine();
         Book book = new Book(name, author, price, type);//创建一本新的完整的书
-        int CurrentSize = bookList.getUsedsize();
         bookList.setBook(CurrentSize, book);//往书架上添加书
         bookList.setUsedsize(CurrentSize+1);//书架上书的数量+1
         System.out.println("书籍"+name+"新增成功");

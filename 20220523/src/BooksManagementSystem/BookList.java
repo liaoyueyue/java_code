@@ -9,7 +9,8 @@ package BooksManagementSystem;
  */
 
 public class BookList {
-    private Book[] books = new Book[10];//定义一个10本数的书架
+    public static final int MaxBook = 10;//书架的最大书的数量
+    private Book[] books = new Book[MaxBook];//定义一个10本数的书架
     private int usedsize;//记录实时书的数量
 
     public BookList(){  //书架原本2本书

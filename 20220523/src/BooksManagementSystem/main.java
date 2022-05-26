@@ -20,6 +20,7 @@ public class main {
         int choice = in.nextInt();
         System.out.println("请输入你的用户名");
         String temp = in.nextLine();//这里回收一下换行符"\n"
+        temp = null;//释放该变量内存
         String name = in.nextLine();
         if (choice == 1) {
             System.out.println("普通用户"+name+"登录成功");

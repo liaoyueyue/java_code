@@ -23,7 +23,8 @@ public class FindOperation implements IOperation{
         for (int i = 0; i < CurrentSize; i++) {
             Book book = bookList.getBook(i);
             if(book.getName().equals(name)){
-                System.out.println("找到了"+name);
+                System.out.println("找到了");
+                System.out.println(book);
                 return;
             }
         }
