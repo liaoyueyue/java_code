@@ -29,14 +29,10 @@ public class DelOperation implements IOperation{
                  * 需要试着把book的地址往前面挪，如删除books[2],则books[3]的地址放到books[2],books[4]的地址放到books[3]....
                  * 而且当前i的值就是需要删除的books的下标
                  */
-                //下面分开讨论是因为当删除最后一本时，原有代码会越界访问数组
-                if(i != BookList.MaxBook){//当删除的不是容量最后一本时
-                    for (int j = i; j < CurrentSize - 1; j++) {
-                        bookList.setBook(j, bookList.getBook(j + 1));
-                    }
-                }else{//但删除的为容量最后一本时
-                    bookList.setBook(CurrentSize, null);
+                for (int j = i; j < CurrentSize - 1; j++) {
+                    bookList.setBook(j, bookList.getBook(j + 1));
                 }
+                bookList.setBook(CurrentSize-1, null);//删除图书后，CurrentSize-1需要进行置空，这样同时在删除最后一本时发挥作用
                 bookList.setUsedsize(CurrentSize-1);//书架上书的实时数量-1
                 System.out.println("书籍"+name+"删除成功");
                 return;
