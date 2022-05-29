@@ -12,7 +12,18 @@ import java.util.Scanner;
  */
 
 public class Solution {
-    static int firstUniqChar(String s) {
+
+    static int firstUniqChar2(String s) {
+        for (int i = 0; i < s.length(); i++) {
+            int one = s.indexOf(s.charAt(i));
+            int last = s.lastIndexOf(s.charAt(i));
+            if (one == last) {
+                return i;
+            }
+        }
+        return -1;
+    }
+    static int firstUniqChar1(String s) {
         int[] hash = new int[26];
         for (int i = 0; i < s.length(); i++) {
             hash[s.charAt(i) - 'a']++;
@@ -29,7 +40,7 @@ public class Solution {
         Scanner in = new Scanner(System.in);
         System.out.println("输入只能是小写字符");
         String string = in.nextLine();
-        int ret = firstUniqChar(string);
+        int ret = firstUniqChar1(string);
         System.out.println(ret);
 
     }
