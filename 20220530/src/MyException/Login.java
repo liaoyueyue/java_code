@@ -1,6 +1,7 @@
 package MyException;
 
 import java.net.PasswordAuthentication;
+import java.util.Scanner;
 
 /**
  * Created with IntelliJ IDEA.
@@ -30,8 +31,8 @@ class PasswordException extends Exception {
 
 
 public class Login {
-    private String username = "admin";
-    private String userpassword = "111";
+    private static String username = "admin";//正确账号
+    private String userpassword = "111";//正确密码
 
     public void loginInfo(String username, String userpassword) throws UserNameException, PasswordException {
         if(!this.username.equals(username)){
@@ -43,15 +44,43 @@ public class Login {
         System.out.println("登录成功");
     }
 
-    public static void main(String[] args) {
-        Login login = new Login();
-        try {
-            login.loginInfo("admin", "11");
-        } catch (UserNameException e) {
-            e.printStackTrace();
-        } catch (PasswordException e) {
-            e.printStackTrace();
+    public static int menu(){
+        System.out.println("*********************");
+        System.out.println("******1、登录账号******");
+        System.out.println("******0、退出系统******");
+        System.out.println("*********************");
+        Scanner in = new Scanner(System.in);
+        if (in.hasNextInt()) {
+            int choice = in.nextInt();
+            return choice;
+        } else {
+            System.out.println("选择错误");
         }
-        System.out.println("before try catch");
+        return 0;
+    }
+
+    public static void main(String[] args) {
+        if (menu() == 1) {
+            Login login = new Login();
+            Scanner in = new Scanner(System.in);
+            try {
+                System.out.println("请输入登录的用户名");
+                String inputname = in.nextLine();
+                System.out.println("请输入登录的密码");
+                String inputword = in.nextLine();
+                login.loginInfo(inputname, inputword);
+            } catch (UserNameException e) {
+                e.printStackTrace();
+            } catch (PasswordException e) {
+                e.printStackTrace();
+            } finally {
+                in.close();
+            }
+            System.out.println("before try catch");
+
+        } else {
+            System.out.println("已退出系统");
+            System.exit(0);
+        }
     }
 }
