@@ -1,6 +1,5 @@
 package MyException;
 
-import java.net.PasswordAuthentication;
 import java.util.Scanner;
 
 /**
