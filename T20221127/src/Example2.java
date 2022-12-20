@@ -34,7 +34,7 @@ class BankAccount {
     public void drawMoney() {
         double money;
         Scanner in = new Scanner(System.in);
-        System.out.println("输入你要存入的金额");
+        System.out.println("输入你要取出的金额");
         money = in.nextDouble();
         balance -= money;
         System.out.println("取出"+ money + "，您现在金额为：" +  balance);
