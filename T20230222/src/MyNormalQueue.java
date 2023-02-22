@@ -5,7 +5,7 @@
  * Date: 2023-02-22
  * Time: 20:08
  */
-public class NormalQueue {
+public class MyNormalQueue {
     private int[] items = new int[1000];
     private volatile int head = 0;
     private volatile int tail = 0;
