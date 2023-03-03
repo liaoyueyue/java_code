@@ -50,3 +50,36 @@ public class MyBlockingQueue {
     }
 }
 
+class TestDemo {
+    public static void main(String[] args) {
+        MyBlockingQueue myBlockingQueue = new MyBlockingQueue();
+        //当线程1采取出队列操作因队列元素为空，从而触发出队列的堵塞
+        Thread t1 = new Thread(()->{
+            try {
+                myBlockingQueue.take();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        //线程2采取入队列操作并通知出队列之后解锁，后续线程1和线程3参与调度，谁先谁后不知道
+        Thread t2 = new Thread(()->{
+            try {
+                myBlockingQueue.put(1);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        //如果线程3获得调度，执行出队列操作并解锁，因为元素1入队后又出队了，最初的线程1的出队列还是检查为元素为空，
+        // 堵塞时间可能比较长队列内元素不知道经历了什么，所以就需要采用while来判断队列元素的个数
+
+        Thread t3 = new Thread(()->{
+            try {
+                myBlockingQueue.take();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        });
+    }
+}
