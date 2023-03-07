@@ -38,42 +38,12 @@ public class JDBC_DEMO {
             }
             switch (n) {
                 case 0:
-                    exit(connection);
+                    exit(connection);//这里会直接回收资源并退出程序
                     break;
                 case 1:
                     boolean flag = login(connection);
                     if (flag) {
-                        //学生信息管理系统
-                        do {
-                            StudentManagementmenu();
-                            int m = 0;
-                            if (in.hasNextInt()) {
-                                m = in.nextInt();
-                            } else {
-                                System.out.println("输入非法字符");
-                                break;
-                            }
-                            switch (m) {
-                                case 0:
-                                    exit(connection);
-                                    break;
-                                case 1:
-                                    addStudentInfo(connection);
-                                    break;
-                                case 2:
-                                    delStudentInfo(connection);
-                                    break;
-                                case 3:
-                                    updateStudentInfo(connection);
-                                    break;
-                                case 4:
-                                    queryStudentInfo(connection);
-                                    break;
-                                default:
-                                    System.out.println("不存在该选项");
-                                    break;
-                            }
-                        } while (true);
+                        secondaryMenu(connection);
                     }
                     break;
                 case 2:
@@ -86,6 +56,40 @@ public class JDBC_DEMO {
         } while (true);
     }
 
+    private static void secondaryMenu(Connection connection) throws SQLException {
+        Scanner in = new Scanner(System.in);
+        //学生信息管理系统
+        do {
+            StudentManagementmenu();
+            int m = 0;
+            if (in.hasNextInt()) {
+                m = in.nextInt();
+            } else {
+                System.out.println("输入非法字符");
+                break;
+            }
+            switch (m) {
+                case 0:
+                    exit(connection);
+                    break;
+                case 1:
+                    addStudentInfo(connection);
+                    break;
+                case 2:
+                    delStudentInfo(connection);
+                    break;
+                case 3:
+                    updateStudentInfo(connection);
+                    break;
+                case 4:
+                    queryStudentInfo(connection);
+                    break;
+                default:
+                    System.out.println("不存在该选项");
+                    break;
+            }
+        } while (true);
+    }
 
 
     private static void logon(Connection connection) throws SQLException {
@@ -240,6 +244,13 @@ public class JDBC_DEMO {
     }
 
     private static void exit(Connection connection) {
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+          connection = null;
+        }
         System.exit(0);
         System.out.println("程序已经退出");
     }
