@@ -1,0 +1,8 @@
+request 请求
+receive 接收
+respond 回答/响应
+
+echo 回声
+datagram 数据报
+
+process 过程
