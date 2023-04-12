@@ -1,6 +1,7 @@
 package io;
 
 import java.io.File;
+import java.nio.file.Files;
 import java.util.Arrays;
 
 /**
@@ -13,20 +14,23 @@ import java.util.Arrays;
 public class Demo3 {
     public static void main(String[] args) {
         File directory1 = new File("./test/demo/io/file/mkdirs");
+        File directory2 = new File("./test/aaa");
+        File directory3 = new File("./test/bbb");
         directory1.mkdirs();
+        directory2.mkdirs();
+        directory3.mkdirs();
         System.out.println(directory1.isDirectory());
 
-        File directory2 = new File("./test");
-        String[] result = directory2.list();
+        File directory4 = new File(directory2.getParent());
+        String[] result = directory4.list();
         System.out.println(Arrays.toString(result));
 
-        File directory3 = new File("./test/aaa");
-        File directory4 = new File("./test/111");
-        directory3.renameTo(directory4);
-        result = directory2.list();
+        File directory5 = new File("./test/111");
+        directory2.renameTo(directory5);
+        result = directory4.list();
         System.out.println(Arrays.toString(result));
 
-        deleteDirectory(directory2);
+        deleteDirectory(new File("./test"));
     }
 
     /**
