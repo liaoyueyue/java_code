@@ -6,7 +6,7 @@ import java.io.InputStream;
 
 /**
  * Created with IntelliJ IDEA.
- * Description:
+ * Description:字节输入流
  * User: liaoyueyue
  * Date: 2023-04-13
  * Time: 1:40
