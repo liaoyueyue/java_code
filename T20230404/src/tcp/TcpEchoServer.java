@@ -40,7 +40,7 @@ public class TcpEchoServer {
                 Scanner scanner = new Scanner(inputStream);
                 if (!scanner.hasNext()) {
                     //读完就断开
-                    System.out.printf("[%s:%d] 客户端下线！", clientSocket.getInetAddress(), clientSocket.getPort());
+                    System.out.printf("[%s:%d] 客户端下线！\n", clientSocket.getInetAddress(), clientSocket.getPort());
                     break;
                 }
                 String request = scanner.next();
