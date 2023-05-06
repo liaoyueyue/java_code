@@ -4,6 +4,8 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created with IntelliJ IDEA.
@@ -22,16 +24,36 @@ public class TcpEchoServer {
 
     public void start() throws IOException {
         System.out.println("服务器启动");
+        ExecutorService service = Executors.newCachedThreadPool();
         while (true) {
             //先调用accept来接受客服端的链接
             Socket clientSocket = listenSocket.accept();
-            //再处理这个连接
-            processConnection(clientSocket);
+            //再处理这个连接,这里应该使用多线程，每个客户端连接上来都分配一个新的线程负责处理
+//            Thread t = new Thread(() -> {
+//                try {
+//                    processConnection(clientSocket);
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            });
+//            t.start();
+            service.submit(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        processConnection(clientSocket);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+
+
         }
     }
 
     private void processConnection(Socket clientSocket) throws IOException {
-        System.out.printf("[%s:%d] 客户端上线!", clientSocket.getInetAddress(), clientSocket.getPort());
+        System.out.printf("[%s:%d] 客户端上线!\n", clientSocket.getInetAddress(), clientSocket.getPort());
         //处理客户端请求
         try (InputStream inputStream = clientSocket.getInputStream();
              OutputStream outputStream = clientSocket.getOutputStream()) {

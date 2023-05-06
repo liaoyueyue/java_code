@@ -1,0 +1,12 @@
+create table user(
+    id int primary key AUTO_INCREMENT,
+    username varchar(12) not null unique,
+    password varchar(18) not null
+);
+
+create table student(
+    id int primary key AUTO_INCREMENT,
+    name varchar(12) not null unique,
+    sex char(2) check(sex = '男'or sex = '女'),
+    class varchar(12) not null
+);
