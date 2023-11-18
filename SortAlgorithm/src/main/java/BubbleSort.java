@@ -15,7 +15,6 @@ public class BubbleSort {
 
     /**
      * 基本冒泡排序
-     *
      * @param nums 需要排序的整型数组
      * @return 排序后的整型数组
      */
