@@ -10,7 +10,7 @@ import java.util.Arrays;
 public class BubbleSort {
     public static void main(String[] args) {
         int[] nums = new int[]{5, 2, 4, 6, 3};
-        System.out.println(Arrays.toString(bubbleSort_three(nums)));
+        System.out.println(Arrays.toString(bubbleSortThree(nums)));
     }
 
     /**
@@ -18,7 +18,7 @@ public class BubbleSort {
      * @param nums 需要排序的整型数组
      * @return 排序后的整型数组
      */
-    public static int[] bubbleSort_one(int[] nums) {
+    public static int[] bubbleSortOne(int[] nums) {
         for (int i = 0; i < nums.length - 1; i++) {
             for (int j = 1; j < nums.length - i; j++) {
                 if (nums[j - 1] > nums[j]) {
@@ -37,7 +37,7 @@ public class BubbleSort {
      * @param nums 需要排序的整型数组
      * @return 排序后的整型数组
      */
-    public static int[] bubbleSort_two(int[] nums) {
+    public static int[] bubbleSortTwo(int[] nums) {
         for (int i = 0; i < nums.length - 1; i++) {
             // 优化冒泡排序，增加判断位，有序标记，每一轮的初始是true
             boolean flag = true;
@@ -64,7 +64,7 @@ public class BubbleSort {
      * @param nums 需要排序的整型数组
      * @return 排序后的整型数组
      */
-    public static int[] bubbleSort_three(int[] nums) {
+    public static int[] bubbleSortThree(int[] nums) {
         // 定义 arrBoundary 是无序数组的边界，每次比较比到这里为止，不需要进行后面的排序了。
         // 最后一次交换的下标
         int lastSwapIndex = 0;
@@ -93,5 +93,4 @@ public class BubbleSort {
         }
         return nums;
     }
-
 }
