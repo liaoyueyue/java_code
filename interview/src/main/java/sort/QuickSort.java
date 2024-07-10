@@ -10,15 +10,6 @@ import java.util.Arrays;
  * Time: 16:25
  */
 public class QuickSort {
-    public static void main(String[] args) {
-        int[] arr = new int[10];
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = (int) (Math.random() * 100);
-        }
-        System.out.println("排序前序列：" + Arrays.toString(arr));
-        quickSort1(arr, 0, arr.length - 1);
-        System.out.println("排序后序列：" + Arrays.toString(arr));
-    }
 
     public static void quickSort1(int[] arr, int left, int right) {
         if (left >= right) {

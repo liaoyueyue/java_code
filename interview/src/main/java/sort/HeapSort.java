@@ -12,15 +12,6 @@ import java.util.PriorityQueue;
  * Time: 19:00
  */
 public class HeapSort {
-    public static void main(String[] args) {
-        int[] arr = new int[10];
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = (int) (Math.random() * 100);
-        }
-        System.out.println("排序前序列：" + Arrays.toString(arr));
-        heapSort(arr);
-        System.out.println("排序后序列：" + Arrays.toString(arr));
-    }
 
     public static void heapSort(int[] arr) {
         int n = arr.length;
