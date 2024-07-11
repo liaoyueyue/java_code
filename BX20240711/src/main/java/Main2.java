@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 /**
  * Created with IntelliJ IDEA.
- * Description: 没做出 20%通过
+ * Description: dd爱框框 https://ac.nowcoder.com/acm/contest/11211/F 没做出 20%通过
  * User: liaoyueyue
  * Date: 2024-07-11
  * Time: 16:09

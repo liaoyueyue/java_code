@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  * Created with IntelliJ IDEA.
- * Description:
+ * Description: 位运算符
  * User: liaoyueyue
  * Date: 2024-07-08
  * Time: 23:09

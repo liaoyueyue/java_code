@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 /**
  * Created with IntelliJ IDEA.
- * Description: 没做出
+ * Description: 除2! https://ac.nowcoder.com/acm/contest/8563/A
  * User: liaoyueyue
  * Date: 2024-07-11
  * Time: 16:17

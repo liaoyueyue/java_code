@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 /**
  * Created with IntelliJ IDEA.
- * Description:
+ * Description: 简写单词 https://www.nowcoder.com/questionTerminal/0cfa856bf0d649b88f6260d878f35bb4
  * User: liaoyueyue
  * Date: 2024-07-11
  * Time: 15:58
